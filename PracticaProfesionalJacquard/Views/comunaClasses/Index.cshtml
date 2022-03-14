@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PracticaProfesionalJacquard.Models.comunaClass>
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Comunas";
+}
+
+<h1>Lista Comunas</h1>
+
+<p>
+    <a asp-action="Create">Registrar Comuna</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCiudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AreaKm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poblacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCiudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AreaKm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Poblacion)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdComuna">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdComuna">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdComuna">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PracticaProfesionalJacquard.Models.ciudadClass>
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Ciudades";
+}
+<h1>Lista Ciudades</h1>
+
+<p>
+    <a asp-action="Create">Registrar ciudad</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.IdRegion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AreaKm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poblacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EsCapital)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdRegion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AreaKm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Poblacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EsCapital)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdCiudad">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdCiudad">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdCiudad">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

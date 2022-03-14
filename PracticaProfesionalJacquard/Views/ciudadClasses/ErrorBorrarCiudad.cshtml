@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "ErrorBorrarCiudad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Se ha presentado un Error.</h1>
+
+<p>
+    La Ciudad que se ha intentado eliminar todavia tiene Ciudades registradas a su nombre,<br /> para poder borrarlo sera necesario borrar las siguientes ciudades:
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                IdCiudad
+            </th>
+            <th>
+                IdComuna
+            </th>
+            <th>
+                Nombre
+            </th>
+        </tr>
+
+
+    </thead>
+    <tbody>
+        @foreach (var item in @ViewBag.comunasAsociadas)
+        {
+
+            <tr>
+                <td>
+                    @item.IdCiudad
+                </td>
+                <td>
+                    @item.IdComuna
+                </td>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+
+                    <a href="https://localhost:44359/comunaClasses/Delete/@item.IdComuna">Eliminar</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+
+<div>
+    <a href="https://localhost:44359/ciudadClasses">Volver</a>
+</div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PracticaProfesionalJacquard.Models.regionClass>
+ 
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Regiones";
+}
+
+
+
+
+
+<h1>Lista Regiones</h1>
+
+<p>
+    <a asp-action="Create">Registrar Region</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroRegion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AreaKm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poblacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroRegion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaKm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poblacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdRegion">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdRegion">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdRegion">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

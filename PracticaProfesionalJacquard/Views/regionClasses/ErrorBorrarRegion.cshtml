@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "ErrorBorrarRegion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Se ha presentado un Error.</h1>
+<p>
+    La Region que se ha intentado eliminar todavia tiene Ciudades registradas a su nombre,<br /> para poder borrarlo sera necesario borrar las siguientes ciudades:
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                IdRegion
+            </th>
+            <th>
+                IdCiudad
+            </th>
+            <th>
+                Nombre
+            </th>
+        </tr>
+
+
+    </thead>
+    <tbody>
+        @foreach (var item in @ViewBag.ciudadesAsociadas)
+        {
+            
+            <tr>
+                <td>
+                    @item.IdRegion
+                </td>
+                <td>
+                    @item.IdCiudad
+                </td>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    
+                    <a href="https://localhost:44359/ciudadClasses/Delete/@item.IdCiudad">Eliminar</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+    
+    <div>
+        <a href="https://localhost:44359/regionClasses">Volver</a>
+    </div>
